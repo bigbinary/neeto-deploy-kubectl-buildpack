@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+echo "---> Kubectl Buildpack"
+
+BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
+
+HOME_DIR=$(pwd)
+TARGET_DIR=$HOME_DIR/.kubectl_install
+mkdir -p $TARGET_DIR
+
+PROFILE_DIR=$HOME_DIR/.profile.d/
+
+cd $TARGET_DIR && curl -L https://storage.googleapis.com/kubernetes-release/release/v1.25.3/bin/linux/arm/kubectl -o kubectl;
+chmod +x $TARGET_DIR/kubectl
+
+mkdir -p $PROFILE_DIR
+cp $BP_DIR/profile/kubectl.sh $PROFILE_DIR
+cat $BP_DIR/profile/kubectl.sh >> $HOME_DIR/.bashrc
