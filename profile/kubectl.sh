@@ -1,1 +1,1 @@
-export PATH="$HOME/.kubectl_install:$PATH"
+export PATH="$HOME/.kubectl_install:$PATH";
