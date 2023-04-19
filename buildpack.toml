@@ -1,8 +1,8 @@
 api = "0.7"
 
 [buildpack]
-  id = "neeto-review/kubectl"
-  version = "0.0.1"
+  id = "neeto-deploy/kubectl"
+  version = "0.0.2"
 
 [[stacks]]
-  id = "heroku-20"
+  id = "heroku-22"
